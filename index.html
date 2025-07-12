@@ -61,8 +61,8 @@
         }
 
         .section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
+            padding: 4rem 1rem;
+            width: 100%;
             margin: 0 auto;
             flex: 1;
         }
@@ -85,7 +85,7 @@
 
         .tableau-container {
             background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
+            padding: 1rem;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             text-align: center;
@@ -101,12 +101,12 @@
 
         .tableauViz {
             width: 100% !important;
-            height: 90vh;
+            height: 95vh;
         }
 
         .tableau-static {
             width: 100%;
-            height: 90vh;
+            height: 95vh;
             object-fit: contain;
             border-radius: 8px;
         }
@@ -165,10 +165,28 @@
             text-decoration: none;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1200px) {
             .nav-links a {
                 margin-left: 1rem;
                 font-size: 1rem;
+            }
+
+            .section {
+                padding: 4rem 2rem;
+            }
+
+            .tableau-container {
+                padding: 2rem;
+                max-width: 100%;
+                min-width: 300px;
+            }
+
+            .tableauViz {
+                height: 80vh;
+            }
+
+            .tableau-static {
+                height: 80vh;
             }
 
             .section h2 {
@@ -185,14 +203,6 @@
 
             .hero-content p {
                 font-size: 1rem;
-            }
-
-            .tableauViz {
-                height: 80vh;
-            }
-
-            .tableau-static {
-                height: 80vh;
             }
         }
     </style>
@@ -266,8 +276,8 @@
         function embedTableau(vizId) {
             var divElement = document.getElementById(vizId);
             var vizElement = divElement.getElementsByTagName('object')[0];
-            if (divElement.offsetWidth > 800) {
-                vizElement.style.height = '90vh';
+            if (window.innerWidth > 1200) {
+                vizElement.style.height = '95vh';
             } else {
                 vizElement.style.height = '80vh';
             }
